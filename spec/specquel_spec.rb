@@ -2,7 +2,7 @@
 
 RSpec.describe Specquel do
   it 'has a version number' do
-    expect(Specquel::VERSION).not_to be nil
+    expect(described_class::VERSION).not_to be nil
   end
 
   describe 'when required' do
@@ -14,7 +14,7 @@ RSpec.describe Specquel do
 
     context 'when the #connection_arguments is set' do
       before do
-        Specquel.configure do |config|
+        described_class.configure do |config|
           config.connection_arguments = 'sqlite://test.db'
         end
       end
