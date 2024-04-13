@@ -1,0 +1,40 @@
+
+SpecquelIntergrationTests
+  fetches records from the database (FAILED - 1)
+
+Failures:
+
+  1) SpecquelIntergrationTests fetches records from the database
+     Failure/Error: expect(db[:users].to_a).to eq([id: 1, name: 'Aaron Patterson'])
+
+     Sequel::DatabaseError:
+       SQLite3::SQLException: no such table: users
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sqlite3-1.7.3-arm64-darwin/lib/sqlite3/database.rb:177:in `initialize'
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sqlite3-1.7.3-arm64-darwin/lib/sqlite3/database.rb:177:in `new'
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sqlite3-1.7.3-arm64-darwin/lib/sqlite3/database.rb:177:in `prepare'
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sqlite3-1.7.3-arm64-darwin/lib/sqlite3/database.rb:358:in `query'
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sequel-5.79.0/lib/sequel/adapters/sqlite.rb:255:in `block (2 levels) in _execute'
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sequel-5.79.0/lib/sequel/database/logging.rb:38:in `log_connection_yield'
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sequel-5.79.0/lib/sequel/adapters/sqlite.rb:255:in `block in _execute'
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sequel-5.79.0/lib/sequel/connection_pool/threaded.rb:92:in `hold'
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sequel-5.79.0/lib/sequel/database/connecting.rb:293:in `synchronize'
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sequel-5.79.0/lib/sequel/adapters/sqlite.rb:248:in `_execute'
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sequel-5.79.0/lib/sequel/adapters/sqlite.rb:166:in `execute'
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sequel-5.79.0/lib/sequel/dataset/actions.rb:1189:in `execute'
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sequel-5.79.0/lib/sequel/adapters/sqlite.rb:403:in `fetch_rows'
+     # /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sequel-5.79.0/lib/sequel/dataset/actions.rb:164:in `each'
+     # ./spec/specquel_intergration_tests_spec.rb:5:in `to_a'
+     # ./spec/specquel_intergration_tests_spec.rb:5:in `block (2 levels) in <top (required)>'
+     # ------------------
+     # --- Caused by: ---
+     # SQLite3::SQLException:
+     #   no such table: users
+     #   /Users/stupidcodefactory/.gem/ruby/3.2.2/gems/sqlite3-1.7.3-arm64-darwin/lib/sqlite3/database.rb:177:in `initialize'
+
+Finished in 0.00734 seconds (files took 0.05961 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./spec/specquel_intergration_tests_spec.rb:4 # SpecquelIntergrationTests fetches records from the database
+
