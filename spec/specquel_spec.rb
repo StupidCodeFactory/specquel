@@ -14,7 +14,7 @@ RSpec.describe Specquel do
 
     context 'when the #connection_arguments is set' do
       before do
-        Specquel.configure do |config|
+        described_class.configure do |config|
           config.connection_arguments = 'sqlite://test.db'
         end
       end

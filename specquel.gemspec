@@ -37,6 +37,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'sequel'
 
   spec.add_development_dependency 'sqlite3'
+  spec.add_development_dependency 'rubocop-rspec'
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
