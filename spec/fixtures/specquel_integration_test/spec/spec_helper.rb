@@ -5,8 +5,8 @@ require "specquel"
 
 Specquel.configure do |config|
   config.connection_arguments = "sqlite://test.db"
+  config.migrations_folder = "db/migrate"
 end
-
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -17,5 +17,11 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+
+  config.around do |example|
+    db[:users].truncate
+    example.run
+    db[:users].truncate
   end
 end

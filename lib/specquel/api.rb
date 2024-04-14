@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Specquel
   module API
     NO_CONNECTION_ARGUMENTS_ERROR = <<-END_OF_ERROR
@@ -20,5 +22,6 @@ module Specquel
         Sequel.connect(Configuration.instance.connection_arguments)
       end
     end
+    module_function :db
   end
 end
