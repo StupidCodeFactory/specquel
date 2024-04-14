@@ -14,7 +14,11 @@ module Specquel
       Sequel.extension :migration
 
       # DB, '/path/to/migrations/dir', :use_transactions=>true
-      Sequel::Migrator.run(API.db, Configuration.instance.migrations_folder)
+      Sequel::Migrator.run(
+        API.db,
+        Configuration.instance.migrations_folder,
+        Configuration.instance.migration_extra_arguments
+      )
     end
 
     def configure

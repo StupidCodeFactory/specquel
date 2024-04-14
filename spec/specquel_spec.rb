@@ -30,4 +30,24 @@ RSpec.describe Specquel do
       end
     end
   end
+
+  describe '.run_migrations!' do
+    context 'when migration_extra_arguments is not set' do
+      let(:migrations_folder) { "db/migrate" }
+      before do
+        Specquel.configure do |config|
+          config.run_migrations = true
+          config.migrations_folder = migrations_folder
+        end
+
+        spy(Sequel::Migrator)
+      end
+
+      it 'should not pass the extra arguments' do
+        described_class.run_migrations!
+
+        expect(Sequel::Migrator).not have_received(:run).with(db, Configuration.instance.migrations_folder)
+      end
+    end
+  end
 end

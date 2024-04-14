@@ -11,6 +11,7 @@ RSpec.describe Specquel::Configuration do
         expect(described_class.instance.run_migrations).to eq(true)
       end
     end
+
     context 'when set to false' do
       before do
         Specquel.configure { |config| config.run_migrations = false }
